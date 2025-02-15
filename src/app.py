@@ -1,14 +1,11 @@
-import sys
-import os
-import logging
-sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
-
 from flask import Flask, render_template, request
+import os 
 import numpy as np
 import pandas as pd
 from pipeline.predict_pipeline import PredictionPipeline
+import logging
 
-app = Flask(__name__)  # initializing a flask app
+app = Flask(__name__) # initializing a flask app
 
 # Configure logging
 logging.basicConfig(level=logging.DEBUG)
@@ -49,7 +46,7 @@ def index():
 
         except Exception as e:
             logging.error('Exception occurred', exc_info=True)
-            return 'Something is wrong'
+            return 'something is wrong'
 
     else:
         return render_template('index.html')
